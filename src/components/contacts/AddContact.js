@@ -1,7 +1,17 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+import {FaTimes} from 'react-icons/fa'
+
+import ContactContext from '../context/contactContext'
 
 
-const AddContact = ({onAdd, onToggle}) => {
+const AddContact = ({onToggle}) => {
+
+        // initialize ContactContext with contactContext (Mind the Casing)
+        const contactContext = useContext(ContactContext);
+    
+        // destruction githubContext
+        const {addContact} = contactContext; 
+
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
@@ -14,7 +24,8 @@ const AddContact = ({onAdd, onToggle}) => {
         if (!name) {
             alert('Please Enter a valid Contact')
         } else {
-            onAdd({name, email, phone})
+            addContact({name, email, phone})
+            onToggle()
         }
 
         // Clear Form after submit
@@ -22,12 +33,13 @@ const AddContact = ({onAdd, onToggle}) => {
         setPhone("")
         setEmail("")
         
-        onToggle()
     }
 
 
     return (
         <div className="card card-body mb-5">
+            
+        <FaTimes className="text-danger ms-auto" style={{cursor:'pointer', fontSize: "20px"}} onClick={onToggle} />
 
             <form className="fs-5" onSubmit={onSubmit}>
                 <div className="mb-3">
@@ -50,7 +62,7 @@ const AddContact = ({onAdd, onToggle}) => {
                     <label className="form-check-label">Check me out</label>
                 </div> */}
                 <div className="d-grid">
-                    <button type="submit" className="btn btn-secondary btn-block btn-lg">Submit</button>
+                    <button type="submit" className="btn btn-secondary btn-block btn-lg">Save Contact</button>
 
                 </div>
             </form>

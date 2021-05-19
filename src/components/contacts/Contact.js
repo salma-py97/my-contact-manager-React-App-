@@ -4,20 +4,34 @@ import {FaPencilAlt} from 'react-icons/fa'
 
 import PropTypes from 'prop-types'
 
+import {useContext} from 'react'
+
+import ContactContext from '../context/contactContext'
 
 
-const Contact = ({contact, onToggle, onDelete}) => {
+
+
+const Contact = ({contact}) => {
+    
+    // initialize ContactContext with contactContext (Mind the Casing)
+    const contactContext = useContext(ContactContext);
+    
+    // destruction githubContext
+    const {deleteContact, toggleContactInfo} = contactContext; 
+
     const {id, name, email, phone, showInfo} = contact;
+
+
     return (
         <div>
             <div className="card card-body mb-3 mx-auto" >
                 <div className="d-flex align-items-center">
 
-                    <h2>{name} <FaAngleDown className="text-secondary" style={{cursor:'pointer', fontSize: "30px"}} onClick={() => onToggle(id)} />
-                    </h2>
+                    <h4 className="d-flex align-items-center">{name} <FaAngleDown className="text-secondary ms-2 mt-2" style={{cursor:'pointer', fontSize: "30px"}} onClick={() => toggleContactInfo(id)} />
+                    </h4>
                     <div className="ms-auto">
-                        <FaPencilAlt className="text-dark me-3" style={{cursor:'pointer', fontSize: "30px"}} />
-                        <FaTimes className="text-danger" style={{cursor:'pointer', fontSize: "30px"}} onClick={() => onDelete(id)} />
+                        <FaPencilAlt className="text-dark me-3" style={{cursor:'pointer', fontSize: "25px"}} />
+                        <FaTimes className="text-danger" style={{cursor:'pointer', fontSize: "25px"}} onClick={() => deleteContact(id)} />
 
                     </div>
 
