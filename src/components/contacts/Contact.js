@@ -2,6 +2,8 @@ import {FaTimes} from 'react-icons/fa'
 import {FaAngleDown} from 'react-icons/fa'
 import {FaPencilAlt} from 'react-icons/fa'
 
+import {Link} from 'react-router-dom'
+
 import PropTypes from 'prop-types'
 
 import {useContext} from 'react'
@@ -30,7 +32,9 @@ const Contact = ({contact}) => {
                     <h4 className="d-flex align-items-center">{name} <FaAngleDown className="text-secondary ms-2 mt-2" style={{cursor:'pointer', fontSize: "30px"}} onClick={() => toggleContactInfo(id)} />
                     </h4>
                     <div className="ms-auto">
-                        <FaPencilAlt className="text-dark me-3" style={{cursor:'pointer', fontSize: "25px"}} />
+                        <Link to={`/contact/edit/${id}`} >
+                            <FaPencilAlt className="text-dark me-3" style={{cursor:'pointer', fontSize: "25px"}} />
+                        </Link>
                         <FaTimes className="text-danger" style={{cursor:'pointer', fontSize: "25px"}} onClick={() => deleteContact(id)} />
 
                     </div>

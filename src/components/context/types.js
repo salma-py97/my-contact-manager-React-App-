@@ -5,3 +5,4 @@ export const TOGGLE_CONTACT_INFO = 'TOGGLE_CONTACT_INFO';
 // export const TOGGLE_FORM = 'TOGGLE_FORM';
 export const FETCH_CONTACTS = 'FETCH_CONTACTS';
 export const GET_CONTACTS = 'GET_CONTACTS';
+// export const GET_CONTACT = 'GET_CONTACT';

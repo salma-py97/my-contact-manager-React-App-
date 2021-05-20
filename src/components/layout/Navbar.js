@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 
 const Navbar = ({ title, icon, onToggle, showAdd }) => {
 	return (
@@ -9,19 +10,19 @@ const Navbar = ({ title, icon, onToggle, showAdd }) => {
 
 				<ul className="navbar-nav ms-md-auto me-md-5  text-center d-flex flex-row">
 					<li className="nav-item mx-3">
-						<a href="/" className="nav-link fs-6 text-white">
+						<Link to="/" className="nav-link fs-6 text-white">
 							Home
-						</a>
+						</Link>
 					</li>
 					<li className="nav-item mx-3">
-						<a href="/about" className="nav-link fs-6 text-white">
+						<Link to="/about" className="nav-link fs-6 text-white">
 							About
-						</a>
+						</Link>
 					</li>
 					<li className="nav-item mx-3">
-						<a href="#" className="nav-link fs-6 text-white" onClick = {onToggle}>
+						<Link to="#" className="nav-link fs-6 text-white" onClick = {onToggle}>
 							{showAdd ? "Close form" : "Add Contact"}
-						</a>
+						</Link>
 					</li>
 				</ul>
 			</div>

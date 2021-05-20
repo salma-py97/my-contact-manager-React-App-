@@ -13,12 +13,15 @@ import {
     // TOGGLE_FORM,
     TOGGLE_CONTACT_INFO,
     // FETCH_CONTACTS,
-    GET_CONTACTS
+    GET_CONTACTS,
+    // GET_CONTACT
+
 } from './types'
 
 const ContactState = props => {
     const initialState = {
         contacts: [],
+        contact: {}
     }
 
     const [state, dispatch] = useReducer(ContactReducer, initialState)
@@ -33,6 +36,15 @@ const ContactState = props => {
         }
         getContacts();
     }, [])
+
+    // // Get Single Contact
+    // const getContact = async (id) => {
+    //     const res = await fetch(`http://localhost:5000/contacts/${id}`);
+
+    //     console.log(res)
+    //     console.log(res.data)
+    //     dispatch({type: GET_CONTACT, payload: res.data})
+    // }
 
     // Fetch Contacts from Server
     const fetchContacts = async () => {
@@ -98,7 +110,7 @@ const ContactState = props => {
         <ContactContext.Provider value={{
             contacts: state.contacts,
             contact: state.contact,
-            // getContacts,
+            // getContact,
             fetchContacts,
             addContact,
             deleteContact,

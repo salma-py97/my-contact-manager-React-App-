@@ -4,7 +4,8 @@ import {
     // TOGGLE_FORM,
     TOGGLE_CONTACT_INFO,
     // FETCH_CONTACTS,
-    GET_CONTACTS
+    GET_CONTACTS,
+    // GET_CONTACT
 } from './types'
 
 export default (state, action) => {
@@ -14,6 +15,11 @@ export default (state, action) => {
                 ...state,
                 contacts: action.payload
             }
+        // case GET_CONTACT:
+        //     return {
+        //         ...state,
+        //         contact: action.payload
+        //     }
         case ADD_CONTACT:
             return {
                 ...state,

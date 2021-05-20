@@ -6,11 +6,11 @@ import ContactContext from '../context/contactContext'
 
 const AddContact = ({onToggle}) => {
 
-        // initialize ContactContext with contactContext (Mind the Casing)
-        const contactContext = useContext(ContactContext);
-    
-        // destruction githubContext
-        const {addContact} = contactContext; 
+    // initialize ContactContext with contactContext (Mind the Casing)
+    const contactContext = useContext(ContactContext);
+
+    // destruction githubContext
+    const {addContact} = contactContext; 
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
@@ -33,6 +33,8 @@ const AddContact = ({onToggle}) => {
         setPhone("")
         setEmail("")
         
+
+        // props.history.push('/')
     }
 
 
