@@ -1,5 +1,10 @@
 import {useState, useContext} from 'react'
 import {FaTimes} from 'react-icons/fa'
+import PropTypes from 'prop-types'
+
+
+
+import FormInput from '../layout/FormInput'
 
 import ContactContext from '../context/contactContext'
 
@@ -44,25 +49,11 @@ const AddContact = ({onToggle}) => {
         <FaTimes className="text-danger ms-auto" style={{cursor:'pointer', fontSize: "20px"}} onClick={onToggle} />
 
             <form className="fs-5" onSubmit={onSubmit}>
-                <div className="mb-3">
-                    <label className="form-label">Name</label>
 
-                    <input type="text" className="form-control" onChange={(e) => setName(e.target.value)} value={name} />
+                <FormInput label="Name" type="text" value={name} placeholder="Enter Name..." onChange={e => setName(e.target.value)} />
+                <FormInput label="Email" type="email" value={email} placeholder="Enter Email..." onChange={e => setEmail(e.target.value)} />
+                <FormInput label="Phone" type="number" value={phone} placeholder="Enter Phone Number..." onChange={e => setPhone(e.target.value)} />
 
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Email address</label>
-                    <input type="email" className="form-control" onChange={(e) => setEmail(e.target.value)} value={email}/>
-
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Phone Number</label>
-                    <input type="number" className="form-control" onChange={(e) => setPhone(e.target.value)} value={phone}/>
-                </div>
-                {/* <div className="mb-3 form-check">
-                    <input type="checkbox" className="form-check-input" />
-                    <label className="form-check-label">Check me out</label>
-                </div> */}
                 <div className="d-grid">
                     <button type="submit" className="btn btn-secondary btn-block btn-lg">Save Contact</button>
 
@@ -70,6 +61,10 @@ const AddContact = ({onToggle}) => {
             </form>
         </div>
     )
+}
+
+AddContact.propTypes = {
+    onToggle: PropTypes.func,
 }
 
 export default AddContact

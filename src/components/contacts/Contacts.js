@@ -1,6 +1,9 @@
 import {useContext} from 'react'
 import ContactContext from '../context/contactContext'
 import Contact from './Contact'
+import PropTypes from 'prop-types'
+
+
 
 const Contacts = ({onToggle}) => {
     // initialize ContactContext with contactContext (Mind the Casing)
@@ -19,4 +22,7 @@ const Contacts = ({onToggle}) => {
     )
 }
 
+Contacts.propTypes = {
+    onToggle: PropTypes.func.isRequired,
+}
 export default Contacts

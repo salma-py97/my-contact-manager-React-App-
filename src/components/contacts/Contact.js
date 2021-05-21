@@ -54,11 +54,8 @@ const Contact = ({contact}) => {
     )
 }
 
-// Contact.propTypes = {
-//     name: PropTypes.string.isRequired,
-//     phone: PropTypes.string.isRequired,
-//     email: PropTypes.string.isRequired,
-//     showInfo: PropTypes.bool.isRequired,
-// }
+Contact.propTypes = {
+    contact: PropTypes.object.isRequired,
+}
 
 export default Contact
